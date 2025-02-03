@@ -42,6 +42,13 @@ struct RecoveryView: View {
     }
 }
 
+#Preview {
+    ScrollView {
+        RecoveryView()
+    }
+    .background(Color.background)
+}
+
 private extension RecoveryView {
     struct CirclesSectionView: View {
         var type: RecoveryCircleType
@@ -94,11 +101,4 @@ private extension RecoveryView {
             }
         }
     }
-}
-
-#Preview {
-    ScrollView {
-        RecoveryView()
-    }
-    .background(Color.background)
 }

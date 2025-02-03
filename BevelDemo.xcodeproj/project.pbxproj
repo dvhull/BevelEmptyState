@@ -76,7 +76,6 @@
 				3BAFFA952D4D759800AF820E /* CustomViews */,
 				3B92DA982D51806B00324CC2 /* Helpers */,
 				3BAFFA892D4CA05F00AF820E /* Screens */,
-				3BAFFA782D4C5BE800AF820E /* Views */,
 				3BAFFA6A2D4C5B7C00AF820E /* BevelDemoApp.swift */,
 				3BAFFA6C2D4C5B7C00AF820E /* ContentView.swift */,
 				3BAFFA6E2D4C5B7D00AF820E /* Assets.xcassets */,
@@ -91,29 +90,6 @@
 				3BAFFA712D4C5B7D00AF820E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		3BAFFA782D4C5BE800AF820E /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				3BAFFA842D4C6B9300AF820E /* CustomViews */,
-				3BAFFA792D4C5DAC00AF820E /* HomePage */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		3BAFFA792D4C5DAC00AF820E /* HomePage */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = HomePage;
-			sourceTree = "<group>";
-		};
-		3BAFFA842D4C6B9300AF820E /* CustomViews */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		3BAFFA892D4CA05F00AF820E /* Screens */ = {

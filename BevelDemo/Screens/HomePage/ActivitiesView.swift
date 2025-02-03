@@ -17,6 +17,13 @@ struct ActivitiesView: View {
     }
 }
 
+#Preview {
+    ScrollView {
+        ActivitiesView()
+    }
+    .background(Color.background)
+}
+
 private extension ActivitiesView {
     var ActivitiesHeaderView: some View {
         Text("Activities")
@@ -43,11 +50,4 @@ private extension ActivitiesView {
         // TODO: There is probably a better way to do this. For example hiding the TabBar.
         .padding(.bottom, 30)
     }
-}
-
-#Preview {
-    ScrollView {
-        ActivitiesView()
-    }
-    .background(Color.background)
 }

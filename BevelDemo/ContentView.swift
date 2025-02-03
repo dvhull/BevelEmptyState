@@ -7,20 +7,42 @@
 
 import SwiftUI
 
+enum Tab: Int, CaseIterable {
+    case home, journal, fitness, biology
+    
+    var title: String {
+        switch self {
+        case .home: return "Home"
+        case .journal: return "Journal"
+        case .fitness: return "Fitness"
+        case .biology: return "Biology"
+        }
+    }
+    
+    var icon: String {
+        switch self {
+        case .home: return "house.fill"
+        case .journal: return "text.book.closed.fill"
+        case .fitness: return "figure.run"
+        case .biology: return "heart.fill"
+        }
+    }
+}
+
 struct ContentView: View {
-    @State var selectedTab = 0
+    @State private var selectedTab: Tab = .home
     
     var body: some View {
         ZStack(alignment: .bottom) {
             TabView(selection: $selectedTab) {
                 HomeScreen()
-                    .tag(0)
+                    .tag(Tab.home)
                 Text("Journal View")
-                    .tag(1)
+                    .tag(Tab.journal)
                 Text("Fitness View")
-                    .tag(2)
+                    .tag(Tab.fitness)
                 Text("Biology View")
-                    .tag(3)
+                    .tag(Tab.biology)
             }
             CustomTabView(selectedTab: $selectedTab)
         }
@@ -32,56 +54,40 @@ struct ContentView: View {
 }
 
 struct CustomTabView: View {
-    @Binding var selectedTab: Int
+    @Binding var selectedTab: Tab
     
     var body: some View {
         VStack {
             HStack {
-                Button {
-                    selectedTab = 0
-                } label: {
-                    TabItem(iconName: "house.fill", label: "Home", isActive: selectedTab == 0)
-                }
-                Spacer()
-                Button {
-                    selectedTab = 1
-                } label: {
-                    TabItem(iconName: "text.book.closed.fill", label: "Journal", isActive: selectedTab == 1)
-                }
-                Spacer()
-                Button {
-                    selectedTab = 2
-                } label: {
-                    TabItem(iconName: "figure.run", label: "Fitness", isActive: selectedTab == 2)
-                }
-                Spacer()
-                Button {
-                    selectedTab = 3
-                } label: {
-                    TabItem(iconName: "heart.fill", label: "Biology", isActive: selectedTab == 3)
+                ForEach(Tab.allCases, id: \.self) { tab in
+                    Button {
+                        selectedTab = tab
+                    } label: {
+                        TabItem(tab: tab, isActive: selectedTab == tab)
+                    }
+                    if tab != Tab.allCases.last {
+                        Spacer()
+                    }
                 }
             }
             .padding(.horizontal, 41)
             .padding(.vertical, 12)
-            .background {
-                BackgroundCapsuleShadowView()
-            }
+            .background(BackgroundCapsuleShadowView())
         }
         .padding(.horizontal)
     }
 }
 
 struct TabItem: View {
-    var iconName: String
-    var label: String
-    var isActive: Bool
+    let tab: Tab
+    let isActive: Bool
     
     var body: some View {
         VStack {
-            Image(systemName: "\(iconName)")
+            Image(systemName: tab.icon)
                 .font(.title3)
                 .foregroundColor(isActive ? .black : .customGray4)
-            Text("\(label)")
+            Text(tab.title)
                 .font(.system(size: 10, weight: .medium, design: .rounded))
                 .foregroundColor(isActive ? .black : .customGray4)
         }

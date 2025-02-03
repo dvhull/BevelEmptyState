@@ -33,6 +33,10 @@ struct HomeScreen: View {
     }
 }
 
+#Preview {
+    HomeScreen()
+}
+
 /// - Note: All subviews used exclusively within this view are encapsulated in an extension.
 /// This improved readability and prevents name clashes by keeping them scoped to HomeScreen.
 private extension HomeScreen {
@@ -80,8 +84,4 @@ private extension HomeScreen {
         Color.background
             .ignoresSafeArea()
     }
-}
-
-#Preview {
-    HomeScreen()
 }
