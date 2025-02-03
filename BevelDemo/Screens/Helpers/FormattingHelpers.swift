@@ -6,3 +6,10 @@
 //
 
 import Foundation
+import SwiftUI
+
+extension UIFont {
+    static func custom(size: CGFloat, weight: CGFloat) -> Font {
+        Font(UIFont.systemFont(ofSize: size, weight: UIFont.Weight(rawValue: weight)))
+    }
+}
