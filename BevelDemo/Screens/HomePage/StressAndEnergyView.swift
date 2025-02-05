@@ -48,7 +48,7 @@ private extension StressAndEnergyView {
                         HStack {
                             VStack(alignment: .leading) {
                                 StatusUpdateView()
-                                HighiestLowestAverageView()
+                                HighestLowestAverageView()
                             }
                             Spacer()
                             // Offset to fit the arrow.
@@ -56,7 +56,7 @@ private extension StressAndEnergyView {
                                 .offset(x: -4)
                         }
                     }
-                    RightArrowView
+                    RightArrowView()
                 }
                 .padding()
                 .background {
@@ -65,8 +65,10 @@ private extension StressAndEnergyView {
             }
             .padding(.horizontal)
         }
-        
-        var RightArrowView: some View {
+    }
+    
+    struct RightArrowView: View {
+        var body: some View {
             HStack {
                 Spacer()
                 Image(systemName: "arrow.forward")
@@ -116,52 +118,70 @@ private extension StressAndEnergyView {
         }
     }
     
-    struct HighiestLowestAverageView: View {
+    struct HighestLowestAverageView: View {
         var body: some View {
             HStack {
-                VStack(alignment: .leading, spacing: 0) {
-                    Text("–")
-                        .foregroundColor(Color.customGray2)
-                        .bold()
-                        .font(.system(.title2, design: .rounded))
-                    Text("Highest")
-                        .lineLimit(1)
-                        .fixedSize(horizontal: true, vertical: false)
-                        .foregroundColor(.customGray4)
-                        .font(.system(.footnote, design: .rounded))
-                        .bold()
-                }
+                HighestView()
                 CustomDividerView()
                     .padding(.vertical, 1)
                     .padding(.horizontal, 1)
-                VStack(alignment: .leading, spacing: 0) {
-                    Text("–")
-                        .foregroundColor(Color.customGray2)
-                        .bold()
-                        .font(.system(.title2, design: .rounded))
-                    Text("Lowest")
-                        .lineLimit(1)
-                        .fixedSize(horizontal: true, vertical: false)
-                        .foregroundColor(.customGray4)
-                        .font(.system(.footnote, design: .rounded))
-                        .bold()
-                }
+                LowestView()
                 CustomDividerView()
                     .padding(.horizontal, 1)
-                VStack(alignment: .leading, spacing: 0) {
-                    Text("–")
-                        .foregroundColor(Color.customGray2)
-                        .bold()
-                        .font(.system(.title2, design: .rounded))
-                    Text("Average")
-                        .lineLimit(1)
-                        .fixedSize(horizontal: true, vertical: false)
-                        .foregroundColor(.customGray4)
-                        .font(.system(.footnote, design: .rounded))
-                        .bold()
-                }
+                AverageView()
             }
             .padding(.top, 1)
+        }
+    }
+    
+    struct HighestView: View {
+        var body: some View {
+            VStack(alignment: .leading, spacing: 0) {
+                Text("–")
+                    .foregroundColor(Color.customGray2)
+                    .bold()
+                    .font(.system(.title2, design: .rounded))
+                Text("Highest")
+                    .lineLimit(1)
+                    .fixedSize(horizontal: true, vertical: false)
+                    .foregroundColor(.customGray4)
+                    .font(.system(.footnote, design: .rounded))
+                    .bold()
+            }
+        }
+    }
+    
+    struct LowestView: View {
+        var body: some View {
+            VStack(alignment: .leading, spacing: 0) {
+                Text("–")
+                    .foregroundColor(Color.customGray2)
+                    .bold()
+                    .font(.system(.title2, design: .rounded))
+                Text("Lowest")
+                    .lineLimit(1)
+                    .fixedSize(horizontal: true, vertical: false)
+                    .foregroundColor(.customGray4)
+                    .font(.system(.footnote, design: .rounded))
+                    .bold()
+            }
+        }
+    }
+    
+    struct AverageView: View {
+        var body: some View {
+            VStack(alignment: .leading, spacing: 0) {
+                Text("–")
+                    .foregroundColor(Color.customGray2)
+                    .bold()
+                    .font(.system(.title2, design: .rounded))
+                Text("Average")
+                    .lineLimit(1)
+                    .fixedSize(horizontal: true, vertical: false)
+                    .foregroundColor(.customGray4)
+                    .font(.system(.footnote, design: .rounded))
+                    .bold()
+            }
         }
     }
     

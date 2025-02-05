@@ -10,25 +10,22 @@ import SwiftUI
 /// - Note: `Screen` suffix defines a full page, while `View` suffix defines a subview of a screen.
 struct HomeScreen: View {
     var body: some View {
-        ZStack {
-            BackgroundView
-            VStack(spacing: 0) {
-                HeaderView
-                ScrollView(showsIndicators: false) {
-                    VStack(spacing: 33) {
-                        RecoveryView()
-                            .padding(.top, 12)
-                        StressAndEnergyView()
-                        HealthMonitorView()
-                        ActivitiesView()
-                    }
+        VStack(spacing: 0) {
+            HeaderView
+            ScrollView(showsIndicators: false) {
+                VStack(spacing: 33) {
+                    RecoveryView()
+                        .padding(.top, 12)
+                    StressAndEnergyView()
+                    HealthMonitorView()
+                    ActivitiesView()
                 }
             }
-            // Added extra padding to align with the original design, which doesn't follow built-in padding.
-            .padding(.horizontal, 2)
-            .refreshable {
-                // TODO: Add custom refresh view.
-            }
+        }
+        .padding(.horizontal, 2)
+        .background(Color.background)
+        .refreshable {
+            // TODO: Add custom refresh view.
         }
     }
 }
@@ -78,10 +75,5 @@ private extension HomeScreen {
                     .foregroundColor(Color.customGray2)
             }
         }
-    }
-    
-    var BackgroundView: some View {
-        Color.background
-            .ignoresSafeArea()
     }
 }
