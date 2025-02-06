@@ -9,4 +9,4 @@ https://github.com/user-attachments/assets/2c0eb2ea-ec18-4cfb-b382-446bf777ba78
 
 <h1>Feature Mockup</h1>
 <p>To demonstrate my ability to build original features, I've designed a new feature aimed at reducing friction when creating workout routines within Bevel. This feature goes beyond simply replicating existing functionality.</p>
-<p><a href="https://docs.google.com/document/d/1yzvPUQCpFAzMd1iSazTonA9vudAgLjLSJ8PymRzg_zs/edit?tab=t.0">BevelDemo/Screens/HomeScreen/HomeScreen.swift</a></p>
+<p><a href="https://docs.google.com/document/d/1yzvPUQCpFAzMd1iSazTonA9vudAgLjLSJ8PymRzg_zs/edit?tab=t.0">Document Link</a></p>
